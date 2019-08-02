@@ -60,13 +60,12 @@ public class PhoneSearchController extends BaseController {
 		try {
 			URL url = new URL("https://www.so.com/s?q=" + tel);
 			URLConnection URLconnection = url.openConnection();
-			URLconnection.setRequestProperty("contentType", "GBK");
 			HttpURLConnection httpConnection = (HttpURLConnection) URLconnection;
 			int responseCode = httpConnection.getResponseCode();
 			if (responseCode == HttpURLConnection.HTTP_OK) {
 				System.err.println("成功");
 				InputStream in = httpConnection.getInputStream();
-				InputStreamReader isr = new InputStreamReader(in,"gbk");
+				InputStreamReader isr = new InputStreamReader(in,"utf-8");
 				BufferedReader bufr = new BufferedReader(isr);
 				String str;
 				while ((str = bufr.readLine()) != null) {
@@ -86,14 +85,13 @@ public class PhoneSearchController extends BaseController {
 
 			URL urlPhoneLocation = new URL("https://ifish.fun/tools/phone?tel=" + tel);
 			URLConnection URLconnectionPhoneLocation = urlPhoneLocation.openConnection();
-			URLconnectionPhoneLocation.setRequestProperty("contentType", "GBK");
 			HttpURLConnection httpConnectionPhoneLocation = (HttpURLConnection) URLconnectionPhoneLocation;
 			int responseCodePhoneL = httpConnectionPhoneLocation.getResponseCode();
 
 			String jsonStr = "";
 			if (responseCodePhoneL == HttpURLConnection.HTTP_OK) {
 				InputStream in = httpConnectionPhoneLocation.getInputStream();
-				InputStreamReader isr = new InputStreamReader(in, "gbk");
+				InputStreamReader isr = new InputStreamReader(in, "utf-8");
 				BufferedReader bufr = new BufferedReader(isr);
 
 				String str;
