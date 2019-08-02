@@ -73,7 +73,7 @@ public class PhoneSearchController extends BaseController {
 				}
 				bufr.close();
 			} else {
-				System.err.println("失败");
+				System.err.println("failed"+responseCode);
 			}
 
 			String strs[] = allString.split("style=\"background-color:#e76639\">");
