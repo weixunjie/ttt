@@ -66,7 +66,7 @@ public class PhoneSearchController extends BaseController {
 			if (responseCode == HttpURLConnection.HTTP_OK) {
 				System.err.println("成功");
 				InputStream in = httpConnection.getInputStream();
-				InputStreamReader isr = new InputStreamReader(in);
+				InputStreamReader isr = new InputStreamReader(in,"gbk");
 				BufferedReader bufr = new BufferedReader(isr);
 				String str;
 				while ((str = bufr.readLine()) != null) {
@@ -93,7 +93,7 @@ public class PhoneSearchController extends BaseController {
 			String jsonStr = "";
 			if (responseCodePhoneL == HttpURLConnection.HTTP_OK) {
 				InputStream in = httpConnectionPhoneLocation.getInputStream();
-				InputStreamReader isr = new InputStreamReader(in, "utf-8");
+				InputStreamReader isr = new InputStreamReader(in, "gbk");
 				BufferedReader bufr = new BufferedReader(isr);
 
 				String str;
