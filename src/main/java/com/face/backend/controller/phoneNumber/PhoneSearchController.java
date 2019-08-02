@@ -103,6 +103,8 @@ public class PhoneSearchController extends BaseController {
 			} else {
 				System.err.println("失败");
 			}
+			
+			System.err.println(jsonStr);
 
 			locationFrom3RdInfo = com.alibaba.fastjson.JSON.parseObject(jsonStr, SearchResultInfo.class);
 
@@ -151,7 +153,7 @@ public class PhoneSearchController extends BaseController {
 		Result result = new Result();
 
 		result.setCountry("");
-		result.setProvince(locationFrom3RdInfo.getResult().getCity());
+		result.setProvince(Strings.isNotBlank(locationFrom3RdInfo.getResult().getCity()) ? locationFrom3RdInfo.getResult().getProvince()+locationFrom3RdInfo.getResult().getCity() :locationFrom3RdInfo.getResult().getName());
 		result.setCity(flagList.replace("\t", ""));
 		result.setPhone(tel);
 		result.setName("");
