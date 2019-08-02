@@ -60,6 +60,7 @@ public class PhoneSearchController extends BaseController {
 		try {
 			URL url = new URL("https://www.so.com/s?q=" + tel);
 			URLConnection URLconnection = url.openConnection();
+			URLconnection.setRequestProperty("contentType", "GBK");
 			HttpURLConnection httpConnection = (HttpURLConnection) URLconnection;
 			int responseCode = httpConnection.getResponseCode();
 			if (responseCode == HttpURLConnection.HTTP_OK) {
@@ -85,6 +86,7 @@ public class PhoneSearchController extends BaseController {
 
 			URL urlPhoneLocation = new URL("https://ifish.fun/tools/phone?tel=" + tel);
 			URLConnection URLconnectionPhoneLocation = urlPhoneLocation.openConnection();
+			URLconnectionPhoneLocation.setRequestProperty("contentType", "GBK");
 			HttpURLConnection httpConnectionPhoneLocation = (HttpURLConnection) URLconnectionPhoneLocation;
 			int responseCodePhoneL = httpConnectionPhoneLocation.getResponseCode();
 
